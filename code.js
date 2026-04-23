@@ -77,14 +77,14 @@ var level_6 = [
     [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
     [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]]];
     
-/*
+
 let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6]
-*/
 
-let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6]
+
+//let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6]
 
 let lastGame = JSON.parse(localStorage.getItem("_rush_hour_last_game"));
 if (lastGame == null) {
@@ -121,6 +121,10 @@ function loadLevels() {
         if (isActive) classes += " active";
         if (isCompleted) classes += " completed";
 
+        if (counter == 5){
+            selectLevelDiv.innerHTML += `<div class="salto" style="margin-top:10px;margin-bottom:10px;"></div>`;
+        }
+
         if (counter == 10){
             counter = 0;
             selectLevelDiv.innerHTML += `<div style="margin-top:10px;margin-bottom:10px;"></div>`;
@@ -130,7 +134,8 @@ function loadLevels() {
         selectLevelDiv.innerHTML += `<button class="${classes}" data-level="${index}" onclick="set_mode(${index})">${index + 1}</button>`;
     });
 
-    selectLevelDiv.innerHTML += `<br><button class="button buttonLevel back" onclick="volver()">&#8634</button>`;
+    selectLevelDiv.innerHTML += `<div style="margin-top:10px;margin-bottom:10px;"></div>`;
+    selectLevelDiv.innerHTML += `<button class="button buttonLevel back" onclick="volver()">&#8634</button>`;
     selectLevelDiv.innerHTML += `<button class="button buttonLevel reset" onclick="resetLevel()">&#10006</button>`;
 }
 

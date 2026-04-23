@@ -43,14 +43,19 @@
             .item0{background-color:gray}
             .exit{box-shadow:8px 0 0 0 #00FFD1;position:relative;text-align:center}
             .exit::after{content:"\279C";position:absolute;right:-40px;top:50%;transform:translateY(-50%)}
-            #selectLevel{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:#34568B;margin-left:auto;margin-right:auto;text-align:center;padding-top: 40px;}            
+            #selectLevel{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:#34568B;margin-left:auto;margin-right:auto;text-align:center;padding-top: 40px;}   
+            .salto{display:none}
+            @media (max-width: 875px) {
+                .buttonLevel{font-size:18px;padding:15px;width:65px;}}
             @media (max-width: 767px) {
                 .buttonLevel{font-size:18px;padding:15px;width:65px;}
-                .item {width: 60px;height: 60px;} 
+                .item {width: 60px;height: 60px;} .salto{display:block}
+                .reset_button,.select_button {padding: 10px 90px;font-size:22px;}
             }
             @media (max-width: 500px) {
-                .buttonLevel{font-size:15px;padding:10px;margin:3px;width:50px;}
-                .item {width: 50px;height: 50px;} 
+                .buttonLevel{font-size:16px;padding:10px;margin:3px;width:55px;}
+                .item {width: 50px;height: 50px;} .salto{display:block}
+                .reset_button,.select_button{padding: 10px 60px;font-size:18px;}
             }
         </style>
         <title>
