@@ -76,12 +76,15 @@ var level_6 = [
     [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
     [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
     [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]]];
-
+    
+/*
 let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6,
 level_0, level_1, level_2, level_3, level_4, level_5, level_6,level_6, level_6, level_6]
-//let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6]
+*/
+
+let levels = [level_0, level_1, level_2, level_3, level_4, level_5, level_6]
 
 let lastGame = JSON.parse(localStorage.getItem("_rush_hour_last_game"));
 if (lastGame == null) {
