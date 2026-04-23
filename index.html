@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta content="utf-8" http-equiv="encoding">
         <style type="text/css">
             .hidden{display:none!important}
+            html,body{margin:0;padding:0;}
             .header{display:flex;align-items:center;justify-content:right;padding-left:10px;padding-right:10px}
             .button{background-color:#69F069;outline:2px solid #000;color:#000;padding:7px 13px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;font-weight:700;border-radius:10px}
             .button:hover{background-color:#5FFF14;outline: 4px solid #00FFE6;}
@@ -19,10 +21,10 @@
             .reset_button:hover{background-color:#5FFF14;outline:4px solid #00FFE6}
             .select_button{background-color:#00FFE6;outline:2px solid #000;color:#000;padding:10px 120px;text-align:center;display:inline-block;font-size:26px;font-weight:700;border-radius:10px;cursor:pointer}
             .select_button:hover{background-color:#00a3ff;outline:4px solid #00FFE6}
-            .table_container{margin-left:auto;margin-right:auto;margin-top:-5px;text-align:center}
+            .table_container{margin-left:auto;margin-right:auto;margin-top:-5px;text-align:center;width:95vw;}
             .actual_level{margin-bottom:-5px;outline:2px solid #000;padding:3px 20px;display:inline-block;margin-left:auto;margin-right:auto;background-color:#00FFE6;text-align:center;color:#000;font-size:20px;border-radius:10px}
             .win{outline:2px solid #000;padding:10px 100px;display:inline-block;margin-left:auto;margin-right:auto;background-color:#00FFE6;text-align:center;color:#000;font-size:30px;border-radius:10px}
-            .table{width:485px;height:485px;margin:auto;margin-top:10px;background-color:#000}
+            .table{max-width:485px;max-height:485px;margin:auto;margin-top:10px;background-color:#000}
             .item{width:75px;height:75px;vertical-align:middle;text-align:center;font-weight:400;color:#000;font-weight:bolder;font-size:xx-large}
             .item_r1,.item_red1{width:71px;height:67px;background-color:red;border-bottom:4px solid #00FFD1;border-left:4px solid #00FFD1;border-top:4px solid #00FFD1;animation-name:blinking_red;animation-duration:2s;animation-iteration-count:200}
             .item_r2,.item_red2{width:71px;height:67px;background-color:red;border-bottom:4px solid #00FFD1;border-right:4px solid #00FFD1;border-top:4px solid #00FFD1;animation-name:blinking_red;animation-duration:2s;animation-iteration-count:200}
@@ -41,7 +43,14 @@
             .item0{background-color:gray}
             .exit{box-shadow:8px 0 0 0 #00FFD1;position:relative;text-align:center}
             .exit::after{content:"\279C";position:absolute;right:-40px;top:50%;transform:translateY(-50%)}
-            #selectLevel{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:#34568B;margin-left:auto;margin-right:auto;text-align:center;padding-top: 40px;}
+            #selectLevel{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:#34568B;margin-left:auto;margin-right:auto;text-align:center;padding-top: 40px;}            
+            @media (max-width: 767px) {
+                .buttonLevel{font-size:18px;padding:15px;width:65px;}
+                /*.item {width: 45px;height: 45px;} */
+            }
+            @media (max-width: 500px) {
+                .buttonLevel{font-size:15px;padding:10px;margin:3px;width:50px;}
+            }
         </style>
         <title>
             Rush Hour
