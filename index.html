@@ -3,35 +3,66 @@
     <head>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
-        <script src="code.js"></script>
         <style type="text/css">
-            .header{display:flex;align-items:center;justify-content:space-between;padding-left:10px;padding-right:10px}.justify-center{display:flex;align-items:center;justify-content:center}.justify-around{display:flex;align-items:center;justify-content:space-around;}
+            .hidden{display:none!important}
+            .header{display:flex;align-items:center;justify-content:right;padding-left:10px;padding-right:10px}
+            .button{background-color:#69F069;border:2px solid #000;color:#000;padding:7px 13px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;font-weight:700;border-radius:10px}
+            .button:hover{background-color:#5FFF14;border:4px solid #00FFE6}
+            .buttonLevel{font-size:20px;padding:20px;margin:5px}
+            .buttonLevel.active{background-color:#6217ef;}
+            .buttonLevel.completed{color:green;text-decoration: line-through;}
+            .mode{margin-left:auto;margin-right:auto;text-align:center}
+            .selectLevel,.reset{margin-left:auto;margin-right:auto;margin-top:10px;text-align:center}
+            .reset_button{background-color:#69F069;border:2px solid #000;color:#000;padding:10px 120px;text-align:center;display:inline-block;font-size:26px;font-weight:700;border-radius:10px;cursor:pointer;margin-top:15px;margin-bottom:15px}
+            .reset_button:hover{background-color:#5FFF14;border:4px solid #00FFE6}
+            .select_button{background-color:#00FFE6;border:2px solid #000;color:#000;padding:10px 120px;text-align:center;display:inline-block;font-size:26px;font-weight:700;border-radius:10px;cursor:pointer}
+            .select_button:hover{background-color:#00a3ff;border:4px solid #00FFE6}
+            .table_container{margin-left:auto;margin-right:auto;margin-top:-5px;text-align:center}
+            .actual_level{margin-bottom:-5px;border:2px solid #000;padding:3px 20px;display:inline-block;margin-left:auto;margin-right:auto;background-color:#00FFE6;text-align:center;color:#000;font-size:20px;border-radius:10px}
+            .win{border:2px solid #000;padding:10px 100px;display:inline-block;margin-left:auto;margin-right:auto;background-color:#00FFE6;text-align:center;color:#000;font-size:30px;border-radius:10px}
+            .table{width:485px;height:485px;margin:auto;margin-top:10px;background-color:#000}
+            .table_won{border:3px solid #000;width:485px;height:485px;margin:auto;margin-top:-5px;background-color:#000}
+            .item{width:75px;height:75px;vertical-align:middle;text-align:center;font-weight:400;color:#000;font-weight:bolder;font-size:xx-large}
+            .item_r1,.item_red1{width:71px;height:67px;background-color:red;border-bottom:4px solid #00FFD1;border-left:4px solid #00FFD1;border-top:4px solid #00FFD1;animation-name:blinking_red;animation-duration:2s;animation-iteration-count:200}
+            .item_r2,.item_red2{width:71px;height:67px;background-color:red;border-bottom:4px solid #00FFD1;border-right:4px solid #00FFD1;border-top:4px solid #00FFD1;animation-name:blinking_red;animation-duration:2s;animation-iteration-count:200}
+            @keyframes blinking_red {
+            50%{border-color:red}
+            }
+            .item_b,.item_br,.item_brown{background-color:#5C4033}
+            .item_lb,.item_lightblue{background-color:#add8e6}
+            .item_y,.item_ye,.item_yellow{background-color:#ff0}
+            .item_p,.item_pu,.item_purple{background-color:purple}
+            .item_g,.item_gr,.item_green{background-color:#90ee90}
+            .item_rs,.item_rose{background-color:#ffc0cb}
+            .item_db,.item_darkblue{background-color:#00008b}
+            .item_o,.item_or,.item_orange{background-color:orange}
+            .item_c,.item_cy,.item_cyan{background-color:#0ff}
+            .item_dg{background-color:#006400}
+            .item_ma{background-color:#f0f}
+            .item0{background-color:gray}
+            .exit{box-shadow:8px 0 0 0 #00FFD1;position:relative;text-align:center}
+            .exit::after{content:"\279C";position:absolute;right:-40px;top:50%;transform:translateY(-50%)}
+            #selectLevel{position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color:#34568B;margin-left:auto;margin-right:auto;text-align:center;}
         </style>
-        <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
         <title>
             Rush Hour
         </title>
-
+        <link rel="icon" href="./icon.png">
     </head>
-    <body style="background-color:#34568B">    
-        <div class="header" style="margin-bottom: 10px;">
-            <div><span id="tituloApp" class="content-head is-center" style="font-size: 1.5em; padding-left: 60px; margin-bottom: 15px;">RUSH HOUR</span></div>
-            <div><a href="https://github.com/Emulators-Salvacam/Rush-hour-js" title="GitHub" target="_blank" rel="noopener"><img src="./github.png" alt="GitHub" height="25"></a></div>
-        </div>
-
-        <div class="mode">
-            <button class="button" onclick="set_mode(0)">Intermediate</button>
-            <button class="button" onclick="set_mode(1)">Advanced</button>
-            <button class="button" onclick=set_mode(2)>Expert</button>
-            <button class="button" onclick=set_mode(3)>Grandmaster</button>
-        </div>
-
+    <body style="background-color:#34568B;margin: 0;">    
+        <div style="margin-left:auto;margin-right:auto;text-align:center;margin-bottom:15px;">
+            <div class="actual_level">Playing level <span id="level"></span></div>
+            <a href="https://github.com/Emulators-Salvacam/Rush-hour-js" title="GitHub" target="_blank" rel="noopener" style="position:absolute; right:15px;" ><img src="./github.png" alt="GitHub" height="25"></a>
+        </div>        
         <div id="table_container" class="table_container"></div>
-        <br/>
-        <br/>
         <div class="reset">
             <button class="reset_button" onclick="reset()">Reset level</button>
         </div>
-
+        <div class="selectLevel ">
+            <button class="select_button" onclick="selectLevel()">Select level</button>
+        </div>
+        <div id="selectLevel" class="hidden">            
+        </div>
     </body>
+    <script src="code.js"></script>
 </html>

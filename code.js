@@ -1,72 +1,81 @@
 // Empty 6X6 table initialized with in deepcopy.
 var empty_table = [    
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]]];
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]]];
 // 1 = Red1/2; 2 = Brown; 3 = Light blue; 4 = Yellow; 5 = Purple; 6 = Green; 7 = Rose rs; 8 = Dark blue; 9 = Orange; 10 = cyan; 11 = darkgreen; 12 = magenta
 
 // [0] => color; 
 // [1] => Number of following blocks / if 0 = empty; 
 // [2] => button to move (1: left, 2: right, 3: up, 4: down, 0: middle)
 
-var intermediate_table = [
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["db", 2, 3], ["wh", 0, 0], ["wh", 0, 0]],
-    [["lb", 3, 1], ["lb", 3, 0], ["lb", 3, 2], ["db", 2, 4], ["wh", 0, 0], ["wh", 0, 0]],
-    [["r1", 2, 1], ["r2", 2, 2], ["lb", 2, 3], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["gr", 2, 3], ["wh", 0, 0], ["lb", 2, 4], ["pu", 2, 1], ["pu", 2, 2], ["pu", 2, 3]],
-    [["gr", 2, 4], ["dg", 2, 1], ["dg", 2, 2], ["dg", 2, 3], ["wh", 0, 0], ["pu", 2, 4]],
-    [["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["dg", 2, 4], ["dg", 2, 1], ["dg", 2, 2]]];
+var level_0 = [
+    [["wh",0,0],["wh",0,0],["lb",2,3],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["lb",2,4],["pu",3,1],["pu",3,0],["pu",3,2]],
+    [["r1",2,1],["r2",2,2],["wh",0,0],["wh",0,0],["wh",0,0],["ye",3,3]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["ye",3,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["ye",3,4]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0],["wh",0,0]]];
 
-var intermediate_table1 = [
-    [["lb", 2, 1], ["lb", 2, 2], ["rs", 2, 3], ["or", 3, 3], ["wh", 0, 0], ["wh", 0, 0]],
-    [["br", 2, 1], ["br", 2, 2], ["rs", 2, 4], ["or", 3, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["db", 3, 3], ["r1", 2, 1], ["r2", 2, 2], ["or", 3, 4], ["wh", 0, 0], ["wh", 0, 0]],
-    [["db", 3, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["db", 3, 4], ["pu", 2, 1], ["pu", 2, 2], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]],
-    [["gr", 3, 1], ["gr", 3, 0], ["gr", 3, 2], ["wh", 0, 0], ["wh", 0, 0], ["wh", 0, 0]]];
+var level_1 = [
+    [["wh",0,0],["wh",0,0],["wh",0,0],["db",2,3],["wh",0,0],["wh",0,0]],
+    [["lb",3,1],["lb",3,0],["lb",3,2],["db",2,4],["wh",0,0],["wh",0,0]],
+    [["r1",2,1],["r2",2,2],["br",2,3],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["gr",2,3],["wh",0,0],["br",2,4],["pu",2,1],["pu",2,2],["br",2,3]],
+    [["gr",2,4],["dg",2,1],["dg",2,2],["gr",2,3],["wh",0,0],["br",2,4]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["gr",2,4],["dg",2,1],["dg",2,2]]];
 
-var advanced_table = [
-    [["wh", 0, 0], ["ye", 2, 3], ["wh", 0, 0], ["rs", 3, 1], ["rs", 3, 0], ["rs", 3, 2]],
-    [["br", 2, 3], ["ye", 2, 4], ["wh", 0, 0], ["db", 2, 3], ["cy", 3, 3], ["wh", 0, 0]],
-    [["br", 2, 4], ["r1", 2, 1], ["r2", 2, 2], ["db", 2, 4], ["cy", 3, 0], ["dg", 2, 3]],
-    [["lb", 2, 3], ["pu", 3, 1], ["pu", 3, 0], ["pu", 3, 2], ["cy", 3, 4], ["dg", 2, 4]],
-    [["lb", 2, 4], ["wh", 0, 0], ["gr", 2, 3], ["wh", 0, 0], ["wh", 0, 0], ["ma", 2, 3]],
-    [["wh", 0, 0], ["wh", 0, 0], ["gr", 2, 4], ["or", 2, 1], ["or", 2, 2], ["ma", 2, 4]]];
+var level_2 = [
+    [["wh",0,0],["wh",0,0],["wh",0,0],["db",2,3],["wh",0,0],["wh",0,0]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["db",2,4],["wh",0,0],["wh",0,0]],
+    [["r1",2,1],["r2",2,2],["br",2,3],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["gr",2,3],["wh",0,0],["br",2,4],["pu",2,1],["pu",2,2],["br",2,3]],
+    [["gr",2,4],["pu",2,1],["pu",2,2],["gr",2,3],["wh",0,0],["br",2,4]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["gr",2,4],["dg",2,1],["dg",2,2]]];
 
-var advanced_table1 = [
-    [["wh", 0, 0], ["ye", 2, 3], ["wh", 0, 0], ["rs", 3, 1], ["rs", 3, 0], ["rs", 3, 2]],
-    [["br", 2, 3], ["ye", 2, 4], ["wh", 0, 0], ["db", 2, 3], ["cy", 3, 3], ["wh", 0, 0]],
-    [["br", 2, 4], ["r1", 2, 1], ["r2", 2, 2], ["db", 2, 4], ["cy", 3, 0], ["dg", 2, 3]],
-    [["lb", 2, 3], ["pu", 3, 1], ["pu", 3, 0], ["pu", 3, 2], ["cy", 3, 4], ["dg", 2, 4]],
-    [["lb", 2, 4], ["wh", 0, 0], ["gr", 2, 3], ["wh", 0, 0], ["wh", 0, 0], ["ma", 2, 3]],
-    [["wh", 0, 0], ["wh", 0, 0], ["gr", 2, 4], ["or", 2, 1], ["or", 2, 2], ["ma", 2, 4]]];
+var level_3 = [
+    [["wh",0,0],["wh",0,0],["wh",0,0],["db",2,3],["wh",0,0],["wh",0,0]],
+    [["pu",3,1],["pu",3,0],["pu",3,2],["db",2,4],["wh",0,0],["wh",0,0]],
+    [["r1",2,1],["r2",2,2],["br",2,3],["wh",0,0],["wh",0,0],["wh",0,0]],
+    [["gr",2,3],["wh",0,0],["br",2,4],["pu",2,1],["pu",2,2],["br",2,3]],
+    [["gr",2,4],["dg",2,1],["dg",2,2],["gr",2,3],["wh",0,0],["br",2,4]],
+    [["wh",0,0],["wh",0,0],["wh",0,0],["gr",2,4],["wh",0,0],["wh",0,0]]];
 
-var expert_table = [
-    [["br", 2, 3], ["wh", 0, 0], ["wh", 0, 0], ["gr", 3, 1], ["gr", 3, 0], ["gr", 3, 2]],
-    [["br", 2, 4], ["lb", 2, 1], ["lb", 2, 2], ["rs", 2, 3], ["wh", 0, 0], ["wh", 0, 0]],
-    [["r1", 2, 1], ["r2", 2, 2], ["ye", 2, 3], ["rs", 2, 4], ["wh", 0, 0], ["dg", 3, 3]],
-    [["wh", 0, 0], ["wh", 0, 0], ["ye", 2, 4], ["db", 2, 1], ["db", 2, 2], ["dg", 3, 0]],
-    [["wh", 0, 0], ["wh", 0, 0], ["pu", 2, 3], ["or", 2, 1], ["or", 2, 2], ["dg", 3, 4]],
-    [["wh", 0, 0], ["wh", 0, 0], ["pu", 2, 4], ["cy", 3, 1], ["cy", 3, 0], ["cy", 3, 2]]];
+let levels = [level_0, level_1, level_2, level_3]
 
-var grandmaster_table = [
-    [["br", 2, 1], ["br", 2, 2], ["gr", 2, 3], ["wh", 0, 0], ["or", 2, 1], ["or", 2, 2]],
-    [["lb", 2, 1], ["lb", 2, 2], ["gr", 2, 4], ["wh", 0, 0], ["cy", 3, 3], ["wh", 0, 0]],
-    [["ye", 3, 3], ["wh", 0, 0], ["r1", 2, 1], ["r2", 2, 2], ["cy", 3, 0], ["wh", 0, 0]],
-    [["ye", 3, 0], ["rs", 3, 1], ["rs", 3, 0], ["rs", 3, 2], ["cy", 3, 4], ["dg", 2, 3]],
-    [["ye", 3, 4], ["wh", 0, 0], ["wh", 0, 0], ["db", 2, 3], ["wh", 0, 0], ["dg", 2, 4]],
-    [["pu", 2, 1], ["pu", 2, 2], ["wh", 0, 0], ["db", 2, 4], ["ma", 2, 1], ["ma", 2, 2]]];
+let lastGame = JSON.parse(localStorage.getItem("_rush_hour_last_game"));
+if (lastGame == null) {
+    lastGame = 0;
+}
+let finishes = (JSON.parse(localStorage.getItem("_rush_hour_finishes")) || []).map(Number);
 
+let selectLevelDiv = document.getElementById("selectLevel");
 
-let level_name = "";
-let actual_table = deepcopy(intermediate_table); // Variable to store the actual table shoiwed on the screen.
+//Load levels
+levels.forEach((level, index) => {
+    let isActive = index == lastGame;
+    let isCompleted = finishes.includes(index);
+
+    let classes = "button buttonLevel";
+
+    if (isActive) classes += " active";
+    if (isCompleted) classes += " completed";
+
+    selectLevelDiv.innerHTML += `<button class="${classes}" data-level="${index}" onclick="set_mode(${index})">${index + 1}</button>`;
+});
+
+selectLevelDiv.innerHTML += `<br><button class="button buttonLevel" onclick="volver()">&#8634</button>`;
+selectLevelDiv.innerHTML += `<button class="button buttonLevel" onclick="resetLevel()">&#10006</button>`;
+
+let actual_table = deepcopy(levels[lastGame]); // Variable to store the actual table shoiwed on the screen.
 let game_won = false; // Variable to check if the game is won.
 let ROW = 6; // Number of rows.
 let COL = 6; // Number of columns.
-let level = 0; // Variable to store the number of level that is being played.
+let level = lastGame; // Variable to store the number of level that is being played.
+document.getElementById("level").innerHTML = level + 1;
 
 window.onload = function () {
     draw_table(actual_table);
@@ -86,8 +95,17 @@ function deepcopy(arr) {
 }
 
 function draw_table(table) {
-    let table_html = generate_table_html(table);
+    let table_html = "";
+    let table_inner_html = ""; 
+
+    if (game_won == false) { 
+        table_inner_html += table_ongoing(table);
+        table_html = `<table class="table">${table_inner_html}</table>`;
+    }
+
     document.getElementById("table_container").innerHTML = table_html;
+
+    selectLevelDiv.classList.add("hidden");
 }
 
 function table_ongoing(table) { // Function to generate the html code for the table while the game is ongoing.
@@ -137,27 +155,6 @@ function table_ongoing(table) { // Function to generate the html code for the ta
         table_inner_html_ongoing += row_html;
     }
     return table_inner_html_ongoing;
-}
-
-function generate_table_html(table) {
-    let table_inner_html = ""; 
-    if (level == 0) {
-        level_name = "Intermediate";
-    }
-    else if (level == 1) {
-        level_name = "Advanced";
-    }
-    else if (level == 2) {
-        level_name = "Expert";
-    }
-    else if (level == 3) {
-        level_name = "Grand Master";
-    };
-
-    if (game_won == false) { // If game is still ongoing, generates the html table with onclick buttons.
-        table_inner_html += table_ongoing(table);
-        return `<h1 class="actual_level">Playing <u>${level_name} Level</u></h1><table class="table">${table_inner_html}</table>`;
-    }
 }
 
 function left(cell) {
@@ -244,36 +241,64 @@ function check_win() {
     if (actual_table[2][5][0] == "r2") {
         game_won = true;
 
-        table_inner_html = `<h1 class="win">Congratulations! You won the <u>${level_name} level</u></h1>`
+        levelNum = Number(level);
+
+        if (!finishes.includes(levelNum)) {            
+            finishes.push(levelNum);
+            localStorage.setItem("_rush_hour_finishes", JSON.stringify(finishes));
+        }
+
+        let table_inner_html = `<h1 class="win" onclick="set_mode(${level+1})" style="cursor:pointer">Level ${level+1} completed<br>Next level</h1>`
+        if (level == levels.length - 1) {
+            table_inner_html = `<h1 class="win" onclick="set_mode(0)" style="cursor:pointer">Level ${level+1} completed<br>First level</h1>`
+        }
         table_inner_html += document.getElementById("table_container").innerHTML;
         document.getElementById("table_container").innerHTML = table_inner_html;
     }
 }
 
-function set_mode(mode) {
-    if (mode == 0) {
-        actual_table = deepcopy(intermediate_table);
-        level = 0;
+function set_mode(mode) {    
+    document.querySelectorAll(".buttonLevel").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    let button = document.querySelector(`.buttonLevel[data-level="${mode}"]`);
+
+    if (button) {
+        button.classList.add("active");
     }
-    else if (mode == 1) {
-        actual_table = deepcopy(advanced_table);
-        level = 1;
-    }
-    else if (mode == 2) {
-        actual_table = deepcopy(expert_table);
-        level = 2;
-    }
-    else if (mode == 3) {
-        actual_table = deepcopy(grandmaster_table);
-        level = 3;
-    }
+
+    localStorage.setItem("_rush_hour_last_game", mode);
+    level = mode;
+    actual_table = deepcopy(levels[mode]);
+
+    document.getElementById("level").innerHTML = level + 1;
     game_won = false;
     draw_table(actual_table);
-
 }
 
 function reset() {
     set_mode(level);
     game_won = false;
     draw_table(actual_table);
+}
+
+function resetLevel(){    
+    let text = "Reset level completed.";
+    if (confirm(text) == true) {
+        selectLevelDiv.classList.add("hidden");
+        document.querySelectorAll(".buttonLevel").forEach(btn => {
+            btn.classList.remove("completed");
+        });
+        localStorage.setItem("_rush_hour_finishes", JSON.stringify([]));
+        set_mode(0);
+    } 
+}
+
+function selectLevel() {
+    selectLevelDiv.classList.remove("hidden");
+}
+
+function volver() {
+    selectLevelDiv.classList.add("hidden");    
 }
